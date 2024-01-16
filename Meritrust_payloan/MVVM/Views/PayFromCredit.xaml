@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.PayFromCredit"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Pay From Credit Card"
+    Background="#DFE9F3">
+    <VerticalStackLayout>
+        <StackLayout Background="White">
+            <Label
+                Padding="0,16"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Pay loan by check or card" />
+        </StackLayout>
+        <Label
+            Padding="15,17"
+            FontAttributes="Bold"
+            FontSize="Medium"
+            Text="Loan Payment from VISAXXXXXXX457" />
+        <Line
+            HorizontalOptions="Fill"
+            Stroke="gray"
+            StrokeThickness=".5"
+            X2="{Binding Width, Source={RelativeSource Self}}" />
+        <StackLayout>
+            <Label
+                Margin="17,8,0,5"
+                FontSize="16"
+                Text="Pay from" />
+            <StackLayout Margin="0,1" BackgroundColor="White">
+                <StackLayout
+                    Padding="15,0"
+                    HorizontalOptions="Start"
+                    Orientation="Horizontal">
+                    <Picker
+                        x:Name="payfrom"
+                        Title="Select Option"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        ItemDisplayBinding="{Binding banknamenumber}"
+                        ItemsSource="{Binding externalbanksComp}"
+                        SelectedIndexChanged="payToBank" />
+                </StackLayout>
+            </StackLayout>
+            <Label
+                Margin="17,8,0,5"
+                FontSize="16"
+                Text="Amount" />
+            <StackLayout Margin="0,1,0,0" BackgroundColor="White">
+                <StackLayout
+                    Padding="15,0"
+                    HorizontalOptions="Start"
+                    Orientation="Horizontal">
+                    <Entry
+                        x:Name="Amount"
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        HorizontalTextAlignment="Start"
+                        Keyboard="Numeric"
+                        Placeholder="$0.00"
+                        Text="" />
+                </StackLayout>
+            </StackLayout>
+            <Label
+                Margin="17,8,0,5"
+                FontSize="16"
+                Text="Initiate payment on" />
+            <StackLayout Margin="0,1,0,0" BackgroundColor="White">
+                <HorizontalStackLayout Padding="15,4" HorizontalOptions="Start">
+                    <DatePicker
+                        x:Name="paydate"
+                        DateSelected="OnDateSelected"
+                        FontAttributes="Bold"
+                        FontSize="18" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Margin="17">
+            <BoxView HeightRequest="20" Color="Transparent" />
+
+            <Button
+                x:Name="Pay"
+                BackgroundColor="red"
+                Clicked="onSubmit"
+                FontAttributes="Bold"
+                FontSize="17"
+                Text="CONTINUE"
+                TextColor="white"
+                TextTransform="Uppercase" />
+            <BoxView HeightRequest="20" Color="Transparent" />
+
+            <Button
+                BackgroundColor="black"
+                Clicked="backToHome"
+                FontAttributes="Bold"
+                FontSize="17"
+                Text="CANCEL"
+                TextColor="white"
+                TextTransform="Uppercase" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

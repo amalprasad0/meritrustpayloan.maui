@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.ManageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="External Accounts"
+    Background="#DFE9F3">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout Background="White">
+                <Label
+                    Padding="0,16"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Pay loan by check or card" />
+            </StackLayout>
+            <HorizontalStackLayout Spacing="73">
+                <Label
+                    Padding="15,17"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="Loan Payment" />
+                <Button
+                    BackgroundColor="#DFE9F3"
+                    Clicked="GotoBankSearch"
+                    FontAttributes="Bold"
+                    FontSize="17"
+                    Text="+ Add Account"
+                    TextColor="red"
+                    TextTransform="Uppercase" />
+            </HorizontalStackLayout>
+            <StackLayout HorizontalOptions="Center">
+                <CollectionView HorizontalOptions="Center" ItemsSource="{Binding externalbanksComp}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                Margin="0,3"
+                                Background="White"
+                                HeightRequest="279">
+                                <StackLayout Margin="15,15">
+                                    <VerticalStackLayout>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="16"
+                                            Text="{Binding bankname}"
+                                            TextTransform="Uppercase" />
+                                        <Label FontSize="12" Text="{Binding accountnumber}" />
+                                        <Label FontSize="12" Text="{Binding account_type}" />
+                                        <BoxView HeightRequest="10" Color="white" />
+                                        <Line
+                                            HorizontalOptions="Fill"
+                                            Stroke="gray"
+                                            StrokeThickness=".5"
+                                            X2="{Binding Width, Source={RelativeSource Self}}" />
+                                        <BoxView HeightRequest="10" Color="white" />
+                                        <HorizontalStackLayout Spacing="200">
+                                            <VerticalStackLayout>
+                                                <Label FontSize="12" Text="Status" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="16"
+                                                    Text="{Binding bankstatus}" />
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout>
+                                                <Label FontSize="12" Text="Date Added" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="16"
+                                                    Text="{Binding addDate}" />
+                                            </VerticalStackLayout>
+
+                                        </HorizontalStackLayout>
+                                        <BoxView HeightRequest="10" Color="white" />
+                                        <Line
+                                            HorizontalOptions="Fill"
+                                            Stroke="black"
+                                            StrokeThickness=".5"
+                                            X2="{Binding Width, Source={RelativeSource Self}}" />
+                                        <Frame
+                                            Margin="0,13"
+                                            Padding="2"
+                                            BackgroundColor="red"
+                                            BorderColor="Red"
+                                            CornerRadius="5"
+                                            HasShadow="False">
+                                            <Button
+                                                BackgroundColor="red"
+                                                Clicked="PayFrom"
+                                                CommandParameter="{Binding banknamenumber}"
+                                                FontAttributes="Bold"
+                                                Text="PAY FROM THIS ACCOUNT"
+                                                TextColor="white" />
+                                        </Frame>
+
+                                        <Frame
+                                            Padding="2"
+                                            BorderColor="Red"
+                                            CornerRadius="5"
+                                            HasShadow="False">
+                                            <Button
+                                                BackgroundColor="White"
+                                                Clicked="OnDelete"
+                                                CommandParameter="{Binding id}"
+                                                FontAttributes="Bold"
+                                                Text="DELETE ACCOUNT"
+                                                TextColor="Red" />
+                                        </Frame>
+                                    </VerticalStackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

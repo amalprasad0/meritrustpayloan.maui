@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.BankSearchView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Bank Search"
+    Background="#DFE9F3">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout Background="White">
+                <Label
+                    Padding="0,16"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Pay loan by check or card" />
+            </StackLayout>
+            <BoxView HeightRequest="16" Color="Transparent" />
+            <StackLayout Background="white" HeightRequest="700">
+                <Entry
+                    Margin="15,15"
+                    Placeholder="Search the Bank"
+                    Text="{Binding SearchText}"
+                    TextColor="Black" />
+                <BoxView HeightRequest="16" Color="Transparent" />
+
+                <CollectionView
+                    Margin="5"
+                    ItemsLayout="VerticalGrid, 2"
+                    ItemsSource="{Binding FilteredBankDetails}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="4">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="PassToUser" />
+                                </Frame.GestureRecognizers>
+                                <VerticalStackLayout Padding="5">
+                                    <Image
+                                        HeightRequest="100"
+                                        Source="{Binding banklogo}"
+                                        WidthRequest="100" />
+                                    <Label HorizontalTextAlignment="Center" Text="{Binding bankname}" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

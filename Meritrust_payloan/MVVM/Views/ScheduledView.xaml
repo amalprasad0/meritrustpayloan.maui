@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.ScheduledView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Scheduled Loan Payments"
+    Background="#DFE9F3">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout Background="White">
+                <Label
+                    Padding="0,16"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Pay loan by check or card" />
+            </StackLayout>
+            <Label
+                Padding="15,17"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Text="Scheduled Loan Payment" />
+            <ScrollView>
+                <StackLayout HorizontalOptions="Center">
+                    <CollectionView HorizontalOptions="Center" ItemsSource="{Binding payloanComp}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout
+                                    Margin="0,3"
+                                    Background="White"
+                                    HeightRequest="187">
+                                    <StackLayout Margin="15,15">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="From" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="15"
+                                                    Text="{Binding FromBankName}" />
+                                            </VerticalStackLayout>
+                                            <Frame
+                                                Grid.Column="1"
+                                                BorderColor="red"
+                                                HeightRequest="40"
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="CenterAndExpand"
+                                                WidthRequest="40">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer CommandParameter="{Binding id}" Tapped="TapGestureRecognizer_Tapped" />
+                                                </Frame.GestureRecognizers>
+                                                <Image
+                                                    HeightRequest="25"
+                                                    Source="delete.png"
+                                                    WidthRequest="25" />
+                                            </Frame>
+                                        </Grid>
+                                        <HorizontalStackLayout Margin="0,10" HorizontalOptions="FillAndExpand">
+                                            <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="To" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="15"
+                                                    Text="{Binding ToBankName}" />
+                                            </VerticalStackLayout>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="180">
+                                            <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="Pay On" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="15"
+                                                    Text="{Binding Date}" />
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="Amount" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="15"
+                                                    HorizontalTextAlignment="Center"
+                                                    Text="{Binding Amount, StringFormat='${0:F2}'}" />
+                                            </VerticalStackLayout>
+                                        </HorizontalStackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

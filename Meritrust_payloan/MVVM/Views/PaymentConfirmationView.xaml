@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.PaymentConfirmationView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Payment Review"
+    Background="#DFE9F3">
+    <VerticalStackLayout>
+        <StackLayout Background="White">
+            <Label
+                Padding="0,16"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Pay loan by check or card" />
+        </StackLayout>
+        <Label
+            Padding="15,17"
+            FontAttributes="Bold"
+            FontSize="Medium"
+            Text="Loan Payment Review" />
+        <StackLayout BackgroundColor="White" HeightRequest="350">
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Grid Padding="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="To"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="toBankname"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="EndAndExpand"
+                    HorizontalTextAlignment="End"
+                    Text=""
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Line
+                HorizontalOptions="Fill"
+                Stroke="gray"
+                StrokeThickness=".5"
+                X2="{Binding Width, Source={RelativeSource Self}}" />
+            <BoxView HeightRequest="15" Color="Transparent" />
+
+            <Grid Padding="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="From"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="fromBankname"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="EndAndExpand"
+                    HorizontalTextAlignment="End"
+                    Text="Chase Bank of Ameraica - 4589623423"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Line
+                HorizontalOptions="Fill"
+                Stroke="gray"
+                StrokeThickness=".5"
+                X2="{Binding Width, Source={RelativeSource Self}}" />
+            <BoxView HeightRequest="15" Color="Transparent" />
+
+            <Grid Padding="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="Amount"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="amount"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="EndAndExpand"
+                    Text="12.00"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Line
+                HorizontalOptions="Fill"
+                Stroke="gray"
+                StrokeThickness=".5"
+                X2="{Binding Width, Source={RelativeSource Self}}" />
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Grid Padding="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="Fee"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="fee"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="EndAndExpand"
+                    Text="$4.00"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Line
+                HorizontalOptions="Fill"
+                Stroke="gray"
+                StrokeThickness=".5"
+                X2="{Binding Width, Source={RelativeSource Self}}" />
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Grid Padding="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="Total"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="total"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="EndAndExpand"
+                    Text="16.89"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Line
+                HorizontalOptions="Fill"
+                Stroke="gray"
+                StrokeThickness=".5"
+                X2="{Binding Width, Source={RelativeSource Self}}" />
+            <BoxView HeightRequest="15" Color="Transparent" />
+            <Grid Padding="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="pay On"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="payon"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="EndAndExpand"
+                    Text="9/5/4564"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+        </StackLayout>
+        <StackLayout>
+            <HorizontalStackLayout
+                Margin="50"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <CheckBox
+                    x:Name="checkbox"
+                    CheckedChanged="CheckBoxChanged"
+                    IsChecked="false"
+                    Color="black" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    MaximumWidthRequest="300"
+                    Text="Remind Me when the payment is sent. My email is askdidtal@meritrustcsu.org" />
+            </HorizontalStackLayout>
+        </StackLayout>
+        <Line
+            HorizontalOptions="Fill"
+            Stroke="black"
+            StrokeThickness=".5"
+            X2="{Binding Width, Source={RelativeSource Self}}" />
+        <StackLayout Margin="0,20">
+            <Button
+                x:Name="btnpay"
+                Margin="15,0"
+                BackgroundColor="red"
+                BorderColor="red"
+                BorderWidth="1"
+                Clicked="OnSubmitData"
+                CornerRadius="5"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalOptions="FillAndExpand"
+                Text="CONTINUE" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

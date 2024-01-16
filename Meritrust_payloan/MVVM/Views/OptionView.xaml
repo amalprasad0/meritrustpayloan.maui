@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.OptionView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="D A S H B O A R D"
+    Background="#DFE9F3">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout Background="White">
+                <Label
+                    Padding="0,16"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Pay loan by check or card" />
+            </StackLayout>
+            <Label
+                Padding="15,17"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Text="Loan Payment" />
+            <StackLayout Background="White" HorizontalOptions="Center">
+                <CollectionView
+                    Margin="10,18"
+                    HorizontalOptions="Center"
+                    ItemsSource="{Binding Options}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="0,7"
+                                Padding="10,20"
+                                BorderColor="Red">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnNavigateTo" CommandParameter="{Binding screenRoute}" />
+                                </Frame.GestureRecognizers>
+                                <Label
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Option}"
+                                    TextTransform="Uppercase"
+                                    TextColor="Red" />
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.PaymentOptionView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Select Option"
+    Background="#DFE9F3">
+    <VerticalStackLayout>
+        <ScrollView>
+            <VerticalStackLayout>
+                <StackLayout Background="White">
+                    <Label
+                        Padding="0,16"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Center"
+                        Text="Pay loan by check or card" />
+                </StackLayout>
+                <Label
+                    Padding="15,17"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="Loan Payment" />
+                <StackLayout Background="White" HorizontalOptions="Center">
+                    <CollectionView
+                        Margin="10,18"
+                        HorizontalOptions="Center"
+                        ItemsSource="{Binding paymentOptions}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    Margin="0,7"
+                                    Padding="10,20"
+                                    BorderColor="Red">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding screenRoute}" Tapped="OnNavigateTo" />
+                                    </Frame.GestureRecognizers>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding title}"
+                                        TextColor="Red"
+                                        TextTransform="Uppercase" />
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MeriTrust_MAUI.MVVM.Views.PayFromBankView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Pay From Bank"
+    Background="#DFE9F3">
+    <VerticalStackLayout>
+        <StackLayout Background="White">
+            <Label
+                Padding="0,16"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Pay loan by check or card" />
+        </StackLayout>
+        <HorizontalStackLayout Spacing="73">
+            <Label
+                Padding="15,17"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Text="Loan Payment" />
+            <Button
+                BackgroundColor="#DFE9F3"
+                FontAttributes="Bold"
+                FontSize="17"
+                Text="+ Add Account"
+                Clicked="goToBank"
+                TextColor="red"
+                TextTransform="Uppercase" />
+        </HorizontalStackLayout>
+        <Line
+            HorizontalOptions="Fill"
+            Stroke="gray"
+            StrokeThickness=".5"
+            X2="{Binding Width, Source={RelativeSource Self}}" />
+
+        <Label
+            Margin="17,8,0,5"
+            FontSize="16"
+            Text="Pay from" />
+        <StackLayout Margin="0,1" BackgroundColor="White">
+            <StackLayout
+                Padding="15,0"
+                HorizontalOptions="Start"
+                Orientation="Horizontal">
+                <Picker
+                    x:Name="payfrom"
+                    Title="Select Option"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    ItemDisplayBinding="{Binding banknamenumber}"
+                    ItemsSource="{Binding externalbanksComp}" 
+                    SelectedIndexChanged="payFromBank"/>
+            </StackLayout>
+        </StackLayout>
+        <Label
+            Margin="17,8,0,5"
+            FontSize="16"
+            Text="Pay to" />
+        <StackLayout Margin="0,1" BackgroundColor="White">
+            <StackLayout
+                Padding="15,0"
+                HorizontalOptions="Start"
+                Orientation="Horizontal">
+                <Picker
+                    x:Name="payto"
+                    Title="Select Option"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    ItemDisplayBinding="{Binding banknamenumber}"
+                    ItemsSource="{Binding externalbanksComp}" 
+                    SelectedIndexChanged="payToBank"/>
+            </StackLayout>
+        </StackLayout>
+        <Label
+            Margin="17,8,0,5"
+            FontSize="16"
+            Text="Amount" />
+        <StackLayout Margin="0,1,0,0" BackgroundColor="White">
+            <StackLayout
+                Padding="15,0"
+                HorizontalOptions="Start"
+                Orientation="Horizontal">
+                <Entry
+                    x:Name="Amount"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    HorizontalTextAlignment="Start"
+                    Keyboard="Numeric"
+                    Placeholder="$0.00"
+                    Text=""
+                    
+                   />
+            </StackLayout>
+        </StackLayout>
+        <Label
+            Margin="17,8,0,5"
+            FontSize="16"
+            Text="Initiate payment on" />
+        <StackLayout Margin="0,1,0,0" BackgroundColor="White">
+            <HorizontalStackLayout Padding="15,4" HorizontalOptions="Start">
+                <DatePicker
+                    x:Name="paydate"
+                    FontAttributes="Bold"
+                    FontSize="18" 
+                   DateSelected="OnDateSelected" />
+            </HorizontalStackLayout>
+        </StackLayout>
+        <StackLayout Margin="17">
+            <Label Margin="0,2" Text="Allow 1 business day for loan payment to post" />
+            <Label Text="This payment is subject to a convenience fee of 4.00 " TextColor="red" />
+        </StackLayout>
+        <StackLayout Margin="10">
+            <Line
+                HorizontalOptions="Fill"
+                Stroke="gray"
+                StrokeThickness=".5"
+                X2="{Binding Width, Source={RelativeSource Self}}" />
+        </StackLayout>
+        <BoxView HeightRequest="80" Color="Transparent"/>
+        <StackLayout Margin="17">
+            <Button
+                x:Name="Pay"
+                BackgroundColor="red"
+                FontAttributes="Bold"
+                FontSize="17"
+                Text="CONTINUE"
+                TextColor="white"
+                TextTransform="Uppercase" 
+                Clicked="Pay_Clicked"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
